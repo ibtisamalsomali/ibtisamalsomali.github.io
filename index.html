@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ibtisam Alsomali Portfolio</title>
+<meta name="description" content="Ibtisam Alsomali — consultant in governance, risk and performance management, Riyadh, Saudi Arabia. GRCP certified.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Amiri:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout idea: a dim burgundy room lit by gold; the hero frames her portrait in a gold arch. */
+  --wine-deep:#1c0a0f;
+  --wine:#2b1018;
+  --wine-raised:#3a1621;
+  --line:rgba(214,180,120,.18);
+  --gold:#d4b071;
+  --gold-soft:#ead6ac;
+  --ivory:#f3e9dc;
+  --muted:#dccbc6;
+  --display:"Cormorant Garamond","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --body:"Jost","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --arabic:"Amiri","Geeza Pro","Traditional Arabic",serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--wine-deep)}
+body{background:var(--wine-deep);color:var(--ivory);font-family:var(--body);font-weight:300;font-size:17px;line-height:1.7;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);font-weight:500;text-wrap:balance;line-height:1.1}
+
+/* ambient light */
+.ambient{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.ambient span{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55}
+.ambient .a1{width:620px;height:620px;background:#6d1f33;top:-180px;left:-160px;animation:drift 26s ease-in-out infinite alternate}
+.ambient .a2{width:520px;height:520px;background:#8a6a35;opacity:.22;top:30%;right:-200px;animation:drift 32s ease-in-out infinite alternate-reverse}
+.ambient .a3{width:480px;height:480px;background:#4f1426;bottom:-200px;left:30%;animation:drift 30s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(80px,60px) scale(1.08)}}
+
+.wrap{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:0 28px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(28,10,15,.72);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:64px}
+.brand{font-family:var(--display);font-size:24px;letter-spacing:.02em;text-decoration:none;color:var(--ivory)}
+.brand em{color:var(--gold);font-style:italic}
+nav ul{display:flex;gap:26px;list-style:none}
+nav ul a{text-decoration:none;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);transition:color .25s}
+nav ul a:hover{color:var(--gold-soft)}
+
+/* hero */
+.hero{padding:112px 0 96px}
+.hero .hero-grid{display:block}
+.eyebrow{font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.arabic-name{font-family:var(--arabic);font-size:clamp(60px,9vw,108px);line-height:1.35;color:var(--gold-soft);margin-top:14px;direction:rtl;text-align:left}
+.hero h1{font-size:clamp(28px,3.4vw,40px);font-weight:400;max-width:22em;margin:18px 0 28px}
+.hero .lede{font-size:19px;line-height:1.85;color:var(--muted);max-width:36em}
+.actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:44px}
+.btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:999px;text-decoration:none;font-size:14px;letter-spacing:.08em;transition:all .3s}
+.btn.gold{background:linear-gradient(135deg,var(--gold-soft),var(--gold));color:var(--wine-deep);font-weight:500;box-shadow:0 8px 30px -10px rgba(212,176,113,.6)}
+.btn.gold:hover{transform:translateY(-2px);box-shadow:0 14px 34px -10px rgba(212,176,113,.75)}
+.btn.ghost{border:1px solid var(--line);color:var(--gold-soft)}
+.btn.ghost:hover{border-color:var(--gold);background:rgba(212,176,113,.06)}
+
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:96px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:26px 22px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0;padding-left:0}
+.stat b{display:block;font-family:var(--display);font-weight:400;font-size:46px;line-height:1;color:var(--gold-soft);font-variant-numeric:lining-nums tabular-nums}
+.stat span{font-size:13.5px;color:var(--muted);letter-spacing:.04em}
+
+/* sections */
+section{padding:84px 0}
+.head{display:flex;align-items:baseline;gap:18px;margin-bottom:44px}
+.head .num{font-family:var(--display);font-style:italic;color:var(--gold);font-size:22px}
+.head h2{font-size:clamp(36px,5vw,52px)}
+.head::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.about p{color:var(--ivory);max-width:36em}
+.about p+p{margin-top:16px}
+.about p strong{color:var(--gold-soft);font-weight:400}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pillar{padding:22px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(160deg,rgba(58,22,33,.7),rgba(43,16,24,.35));transition:border-color .3s,transform .3s}
+.pillar:hover{border-color:rgba(212,176,113,.45);transform:translateY(-3px)}
+.pillar svg{width:26px;height:26px;stroke:var(--gold);fill:none;stroke-width:1.4;margin-bottom:12px}
+.pillar h3{font-size:22px;margin-bottom:4px}
+.pillar p{font-size:14.5px;color:var(--muted);line-height:1.55}
+
+/* experience */
+.role{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:34px 0;border-top:1px solid var(--line)}
+.role:first-of-type{border-top:0;padding-top:0}
+.when{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.where{font-size:14px;color:var(--muted);margin-top:6px}
+.role h3{font-size:30px}
+.role .org{color:var(--gold-soft);font-size:15px;letter-spacing:.06em;margin:2px 0 14px}
+.role > div > p{color:var(--muted)}
+.engagements{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:22px}
+.eng{padding:20px 22px;border-radius:14px;background:rgba(58,22,33,.45);border:1px solid var(--line);border-left:2px solid var(--gold)}
+.eng h4{font-family:var(--body);font-weight:500;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:8px}
+.eng p{font-size:14.5px;color:var(--muted);line-height:1.6}
+.eng.wide{grid-column:1/-1}
+.eng.wide .proj{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));column-gap:28px}
+.eng h4{display:flex;align-items:center;gap:10px}
+.eico{width:20px;height:20px;flex:none;fill:none;stroke:var(--gold);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.proj{display:grid;gap:10px;margin-top:4px}
+.proj li{font-size:14.5px;line-height:1.5}
+.proj b{display:block;font-weight:500;color:var(--ivory)}
+.proj span{color:var(--muted)}
+.eng.bd{grid-column:1/-1;background:linear-gradient(140deg,rgba(212,176,113,.12),rgba(58,22,33,.5) 60%)}
+.eng.bd ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:6px 24px;margin-top:12px}
+.eng.bd li{font-size:14.5px;color:var(--ivory);padding-left:18px;position:relative}
+
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tags span{font-size:12px;letter-spacing:.06em;padding:5px 12px;border-radius:999px;border:1px solid var(--line);color:var(--gold-soft)}
+
+/* certifications */
+.certs{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:16px}
+.cert{position:relative;padding:26px 22px 22px;border-radius:16px;border:1px solid var(--line);background:rgba(43,16,24,.55);display:flex;flex-direction:column;gap:6px}
+.cert .yr{font-family:var(--display);font-variant-numeric:lining-nums;font-size:20px;font-style:italic;color:var(--gold)}
+.cert h3{font-family:var(--body);font-weight:400;font-size:16.5px;line-height:1.4}
+.cert .by{font-size:13.5px;color:var(--muted);margin-top:auto;padding-top:10px}
+.cert.feature{background:linear-gradient(140deg,rgba(212,176,113,.16),rgba(58,22,33,.6) 60%);border-color:rgba(212,176,113,.45)}
+.cert.feature h3{font-family:var(--display);font-size:30px;font-weight:500;line-height:1.15}
+.cert.feature .badge{position:absolute;top:22px;right:22px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:5px 12px;border-radius:999px;background:var(--gold);color:var(--wine-deep);font-weight:500}
+
+/* competencies */
+.comps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.comp{background:var(--wine-deep);padding:30px 28px}
+.comp h3{font-size:24px;margin-bottom:12px;color:var(--gold-soft)}
+.comp ul{list-style:none;display:grid;gap:6px}
+.star{list-style:none}
+.star li,.comp li{position:relative;padding-left:20px}
+.star li::before,.comp li::before{content:"\2726";position:absolute;left:0;top:.15em;font-size:10px;line-height:1.7;color:var(--gold)}
+.resp{display:grid;gap:8px;margin:4px 0 8px}
+.resp li{color:var(--ivory);font-size:15.5px}
+h4.sub{font-family:var(--body);font-weight:500;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:26px 0 12px}
+.comp li{font-size:14.5px;color:var(--muted);padding-left:18px;position:relative}
+
+
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{padding:26px 28px;border-radius:16px;border:1px solid var(--line);background:rgba(43,16,24,.5)}
+.card .when{margin-bottom:6px}
+.card h3{font-size:26px}
+.card p{color:var(--muted);font-size:15px}
+.lang{display:grid;gap:14px;margin-top:6px}
+.lang div{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:10px}
+.lang b{font-family:var(--display);font-weight:500;font-size:22px}
+.lang span{color:var(--gold-soft);font-size:14px;letter-spacing:.08em}
+
+/* contact */
+.contact{padding:96px 0 104px}
+.closing{display:grid;grid-template-columns:auto 1fr auto;gap:44px;align-items:center;padding:48px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(150deg,rgba(58,22,33,.75),rgba(28,10,15,.4) 70%);box-shadow:0 40px 90px -50px rgba(0,0,0,.9)}
+.avatar{width:210px;aspect-ratio:1;border-radius:50%;overflow:hidden;position:relative;background:radial-gradient(90% 90% at 50% 25%,#fbf3e6,#ead6ac 55%,#c9a467);box-shadow:0 0 0 1px rgba(234,214,172,.6),0 0 0 9px rgba(212,176,113,.08),0 24px 60px -24px rgba(0,0,0,.8)}
+.avatar img{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:112%;max-width:none;mix-blend-mode:multiply}
+.closing-text h2{font-size:clamp(38px,5vw,58px);font-weight:400;margin-top:8px}
+.closing-text h2 em{color:var(--gold)}
+.closing-text > p:not(.eyebrow):not(.addr){color:var(--ivory);max-width:34em;margin-top:16px;line-height:1.8}
+.closing-text .actions{margin-top:30px}
+.contact .addr{margin-top:16px;font-size:14px;color:var(--muted);letter-spacing:.04em}
+.ccard{display:grid;gap:4px;min-width:300px;padding:24px 26px;border:1px solid rgba(212,176,113,.35);border-radius:20px;background:linear-gradient(160deg,rgba(212,176,113,.10),rgba(28,10,15,.55) 65%)}
+.cname{font-family:var(--display);font-size:26px;color:var(--gold-soft);margin-bottom:8px}
+.crow{display:flex;align-items:center;gap:14px;padding:10px 0;border-top:1px solid var(--line);text-decoration:none;color:var(--ivory);transition:color .25s}
+.crow svg{width:32px;height:32px;padding:7px;flex:none;border:1px solid var(--line);border-radius:50%;fill:none;stroke:var(--gold);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.crow small{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.crow span{font-size:14.5px;word-break:break-word}
+a.crow:hover span{color:var(--gold-soft)}
+.qr{display:flex;flex-direction:column;align-items:center;gap:12px;text-decoration:none;padding:18px;border:1px solid var(--line);border-radius:20px;background:rgba(212,176,113,.05);transition:border-color .3s,transform .3s,background .3s}
+.qr svg{width:148px;height:148px;display:block}
+.qr span{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft)}
+.qr:hover{border-color:rgba(212,176,113,.55);background:rgba(212,176,113,.09);transform:translateY(-3px)}
+.thanks{text-align:center;font-family:var(--arabic);font-size:30px;color:var(--gold-soft);opacity:.8;margin-top:56px}
+@media (max-width:1080px){.closing{grid-template-columns:auto 1fr}.ccard{grid-column:1/-1}}
+@media (max-width:920px){.ccard{min-width:0;width:100%;max-width:420px;text-align:left}.closing{grid-template-columns:1fr;justify-items:center;text-align:center;padding:36px 24px}.closing-text .actions{justify-content:center}.closing-text > p:not(.eyebrow):not(.addr){margin-left:auto;margin-right:auto}}
+footer{border-top:1px solid var(--line);padding:26px 0;font-size:13px;color:var(--muted);position:relative;z-index:1}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* seals */
+.cert{overflow:hidden;transition:border-color .35s,transform .35s}
+.cert:hover{border-color:rgba(212,176,113,.55);transform:translateY(-3px)}
+.seal{position:absolute;right:16px;bottom:14px;width:58px;height:58px;opacity:.22;transform:rotate(-12deg) scale(.9);transition:opacity .45s,transform .6s cubic-bezier(.2,.8,.2,1),filter .45s}
+.cert.feature .seal{width:84px;height:84px;right:22px;bottom:20px}
+.seal circle{fill:none;stroke:var(--gold);stroke-width:2}
+.seal circle.in{stroke-width:1;stroke-dasharray:2 3}
+.seal .st{fill:var(--gold)}
+.seal text{fill:var(--gold-soft);font-family:var(--body);font-size:15px;font-weight:500;letter-spacing:1.5px;text-anchor:middle}
+.cert:hover .seal,.cert:focus-within .seal{opacity:1;transform:rotate(0) scale(1.06);filter:drop-shadow(0 0 10px rgba(212,176,113,.5))}
+.cert h3,.cert .by{position:relative;z-index:1;padding-right:56px}
+.cert.feature h3{padding-right:90px}
+/* skills & tools */
+.st-wrap{display:grid;grid-template-columns:1.35fr 1fr;gap:40px}
+.st-wrap h4.sub{margin-top:0}
+.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.skill{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:18px;border:1px solid var(--line);border-radius:14px;background:rgba(43,16,24,.5);transition:border-color .3s,transform .3s,background .3s}
+.skill span{font-size:14.5px;line-height:1.35;color:var(--ivory)}
+.skill svg,.tool svg{width:28px;height:28px;stroke:var(--gold);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.skill:hover,.tool:hover{border-color:rgba(212,176,113,.5);transform:translateY(-3px);background:rgba(58,22,33,.7)}
+.tools{display:grid;gap:12px}
+.tool{display:flex;align-items:center;gap:16px;padding:16px 20px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(120deg,rgba(212,176,113,.08),rgba(43,16,24,.5) 55%);transition:border-color .3s,transform .3s,background .3s}
+.tool svg{width:34px;height:34px;padding:6px;border:1px solid var(--line);border-radius:10px}
+.tool b{display:block;font-family:var(--display);font-weight:500;font-size:22px;line-height:1.1}
+.tool span{font-size:13.5px;color:var(--muted)}
+@media (max-width:920px){.st-wrap{grid-template-columns:1fr}}
+
+@media (max-width:920px){
+  .hero .hero-grid,.about{grid-template-columns:1fr}
+  .certs{grid-template-columns:1fr 1fr}
+  .cert.feature{grid-column:1/-1}
+  .comps{grid-template-columns:1fr 1fr}
+  .role{grid-template-columns:1fr;gap:10px}
+  nav ul{display:none}
+}
+@media (max-width:560px){
+  .wrap{padding:0 18px}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){border-left:0;padding-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .pillars,.certs,.comps,.edu{grid-template-columns:1fr}
+  .cert.feature{grid-column:auto}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="ambient" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Ibtisam <em>Alsomali</em></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Governance · Risk · Performance</p>
+      <p class="arabic-name" lang="ar">ابتسام الصومالي</p>
+      <h1>Consultant in governance, risk and performance management</h1>
+      <p class="lede">Riyadh-based Saudi consultant Ibtisam Alsomali helps organizations across the Kingdom build the foundations for sound decisions: clear governance, effective risk management and performance that can be measured. She is a Certified GRC Professional and a Certified Corporate Performance Management Professional.</p>
+      <div class="actions">
+        <a class="btn gold" href="https://www.linkedin.com/in/ibtisamalsomali" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="8" r="3.5"/><path d="M3.5 20c0-3.6 2.9-6.2 6.5-6.2 1.6 0 3 .5 4.1 1.3M18 14v6M15 17h6"/></svg>Connect on LinkedIn</a>
+        <a class="btn ghost" href="#experience"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7M3 12.5h18M11 12.5v2h2v-2"/></svg>See my engagements</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>Riyadh</b><span>Based in Saudi Arabia</span></div>
+      <div class="stat"><b>3</b><span>Years in consulting</span></div>
+      <div class="stat"><b>5+</b><span>Public &amp; private sector clients</span></div>
+      <div class="stat"><b>3</b><span>Global certifications</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="head"><span class="num">01</span><h2>About</h2></div>
+    <div class="about">
+      <div>
+        <p>Ibtisam Alsomali is a Consultant at <strong>Maven Insights</strong> in Riyadh, with three years of experience serving leading public and private sector organizations across the Kingdom of Saudi Arabia. Her work translates organizational objectives into structured, actionable frameworks, clearly defined roles and responsibilities, and reporting that supports executive decision-making.</p>
+        <p>She has designed risk assessment frameworks, risk management frameworks and strategies, and corporate performance management and KPI frameworks. She has also supported PMO governance and conducted process assessments to identify gaps and improvement opportunities.</p>
+        <p>Ibtisam holds the <strong>Governance, Risk and Compliance Professional (GRCP)</strong> certification from OCEG and the <strong>Certified Performance Management Professional</strong> credential from The KPI Institute. She earned a Bachelor’s degree in Computer Science from King Saud University, which underpins her strength in data analysis, dashboards and automation.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V7z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+          <h3>Governance</h3><p>Roles, responsibilities and accountability across organizational levels.</p>
+        </div>
+        <div class="pillar">
+          <svg viewBox="0 0 24 24"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4.5M12 17.2v.3"/></svg>
+          <h3>Risk &amp; Compliance</h3><p>Risk assessment and risk management frameworks, strategies and gap analysis.</p>
+        </div>
+        <div class="pillar">
+          <svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+          <h3>Performance</h3><p>KPI frameworks and corporate performance management (CPM), backed by professional certification.</p>
+        </div>
+        <div class="pillar">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg>
+          <h3>Execution</h3><p>PMO support, progress reporting and automation that keep initiatives on track.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="head"><span class="num">02</span><h2>Education &amp; languages</h2></div>
+    <div class="edu">
+      <div class="card">
+        <p class="when">2023</p>
+        <h3>King Saud University</h3>
+        <p>Bachelor’s degree, Computer Science · Riyadh</p>
+      </div>
+      <div class="card">
+        <div class="lang">
+          <div><b>Arabic</b><span>Native</span></div>
+          <div><b>English</b><span>Fluent · IELTS band 7</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="head"><span class="num">03</span><h2>Experience</h2></div>
+
+    <article class="role">
+      <div><p class="when">Sep 2023 – Present</p><p class="where">Riyadh, Saudi Arabia</p></div>
+      <div>
+        <h3>Consultant</h3>
+        <p class="org">Maven Insights</p>
+        <p>Delivering transformation, performance and organizational design work for government and commercial clients.</p>
+        <h4 class="sub">Key responsibilities</h4>
+        <ul class="star resp">
+          <li>Prepared reports, dashboards, and presentations for senior leadership across government and commercial engagements</li>
+          <li>Supported PMO oversight on setting milestones, tracking progress, and following up with stakeholders</li>
+          <li>Automated workflows, reducing manual effort and errors and improving processes</li>
+          <li>Conducted process assessments to identify improvement opportunities, feeding into recommendations for stakeholders</li>
+          <li>Maintained accurate project documentation and reporting records across engagements</li>
+          <li>Supported market research, benchmarking, and business development for new opportunities</li>
+        </ul>
+        <h4 class="sub">Selected engagements</h4>
+        <div class="engagements">
+          <div class="eng"><h4><svg class="eico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5L12 4l9 5.5M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></svg>Royal Commission in KSA</h4><ul class="star proj"><li><b>Customer Experience program</b><span>Current-state assessment, gap analysis and ideal customer journey design</span></li><li><b>PMO support</b><span>Readiness assessments, initiative launches and execution tracking against the roadmap</span></li></ul></div>
+          <div class="eng"><h4><svg class="eico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="16.5" cy="9" r="2.5"/><path d="M2.5 19c0-3.2 2.5-5.5 5.5-5.5s5.5 2.3 5.5 5.5M14 14c3 0 6 1.8 6 5"/></svg>Social Company in KSA</h4><ul class="star proj"><li><b>KPI framework</b><span>Designed and implemented across key organizational functions</span></li><li><b>CPM &amp; HR transformation</b><span>Business development backed by data-driven insights</span></li></ul></div>
+          <div class="eng"><h4><svg class="eico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20V10l5 3V10l5 3V10l5 3V5h3v15z"/><path d="M7 17h2M12 17h2M17 17h1"/></svg>Industrial Company in KSA</h4><ul class="star proj"><li><b>Job architecture</b><span>60+ job descriptions built through stakeholder interviews</span></li><li><b>Job evaluation</b><span>140+ positions graded using the Aon Hewitt methodology</span></li><li><b>Compensation benchmarking</b><span>Market salary benchmarking and scenario analysis</span></li></ul></div>
+          <div class="eng"><h4><svg class="eico" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="7" rx="7" ry="3"/><path d="M5 7v5c0 1.7 3.1 3 7 3s7-1.3 7-3V7M5 12v5c0 1.7 3.1 3 7 3s7-1.3 7-3v-5"/></svg>Leading Social Loans Company in KSA</h4><ul class="star proj"><li><b>Strategic frameworks</b><span>Two frameworks grounded in research and data analysis</span></li><li><b>Business development</b><span>Two opportunities supported through deep-dive market research</span></li></ul></div>
+          <div class="eng wide"><h4><svg class="eico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>Leading Retail Company in KSA</h4><ul class="star proj"><li><b>Strategic frameworks</b><span>10+ frameworks supporting business development</span></li><li><b>Reporting automation</b><span>Core workflows automated with Power BI and Power Automate</span></li><li><b>Transformation</b><span>Digital and operational initiatives to improve efficiency</span></li><li><b>Job architecture</b><span>200+ job descriptions with job grading analyses</span></li><li><b>Training</b><span>Structured sessions to embed the new job architecture</span></li></ul></div>
+          <div class="eng bd"><h4><svg class="eico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7M3 12.5h18"/></svg>Business Development</h4><p>Designed solutions for government and private sector opportunities:</p>
+            <ul class="star"><li>Risk assessment frameworks</li><li>Risk management frameworks and strategies</li><li>Corporate performance management and KPI frameworks</li><li>HR transformation and organizational design approaches</li><li>Market research and benchmarking to shape client solutions</li></ul></div>
+        </div>
+        <div class="tags"><span>PMO</span><span>Gap analysis</span><span>KPI frameworks</span><span>Job architecture</span><span>Power BI</span><span>Power Automate</span><span>Business development</span></div>
+      </div>
+    </article>
+
+    <article class="role">
+      <div><p class="when">Jul – Aug 2023</p><p class="where">Riyadh, Saudi Arabia</p></div>
+      <div>
+        <h3>Summer Camp Trainer</h3>
+        <p class="org">SABIC</p>
+        <p>Designed and delivered technical training sessions, building early experience in coaching and knowledge transfer.</p>
+        <div class="tags"><span>Training design</span><span>Facilitation</span></div>
+      </div>
+    </article>
+
+    <article class="role">
+      <div><p class="when">Mar – Jun 2023</p><p class="where">Dhahran, Saudi Arabia</p></div>
+      <div>
+        <h3>Process Automation Analyst Intern</h3>
+        <p class="org">Saudi Aramco</p>
+        <p>Analyzed processes to find inefficiencies and automation opportunities, used advanced Excel to streamline reporting, and developed standardized documentation and assessment guidelines.</p>
+        <div class="tags"><span>Process analysis</span><span>Advanced Excel</span><span>Documentation</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <div class="head"><span class="num">04</span><h2>Certifications</h2></div>
+    <div class="certs">
+      <div class="cert feature">
+        <span class="badge">Latest</span>
+        <span class="yr">2026</span>
+        <h3>GRCP: Governance, Risk and Compliance Professional</h3>
+        <span class="by">OCEG</span>
+        <svg class="seal" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46"/><circle cx="50" cy="50" r="38" class="in"/><path class="st" d="M50 22l2.6 6.2 6.6.5-5 4.3 1.6 6.5-5.8-3.5-5.8 3.5 1.6-6.5-5-4.3 6.6-.5z"/><text x="50" y="62">OCEG</text></svg>
+      </div>
+      <div class="cert"><span class="yr">2026</span><h3>Professional Certificate in Customer Experience</h3><span class="by">The CX Academy</span><svg class="seal" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46"/><circle cx="50" cy="50" r="38" class="in"/><path class="st" d="M50 22l2.6 6.2 6.6.5-5 4.3 1.6 6.5-5.8-3.5-5.8 3.5 1.6-6.5-5-4.3 6.6-.5z"/><text x="50" y="62">CXA</text></svg></div>
+      <div class="cert"><span class="yr">2024</span><h3>Certified Performance Management Professional</h3><span class="by">The KPI Institute</span><svg class="seal" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46"/><circle cx="50" cy="50" r="38" class="in"/><path class="st" d="M50 22l2.6 6.2 6.6.5-5 4.3 1.6 6.5-5.8-3.5-5.8 3.5 1.6-6.5-5-4.3 6.6-.5z"/><text x="50" y="62">KPI</text></svg></div>
+      <div class="cert"><span class="yr">2024</span><h3>Forward Program</h3><span class="by">McKinsey &amp; Company</span><svg class="seal" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46"/><circle cx="50" cy="50" r="38" class="in"/><path class="st" d="M50 22l2.6 6.2 6.6.5-5 4.3 1.6 6.5-5.8-3.5-5.8 3.5 1.6-6.5-5-4.3 6.6-.5z"/><text x="50" y="62">MCK</text></svg></div>
+    </div>
+  </div>
+</section>
+
+<section id="expertise">
+  <div class="wrap">
+    <div class="head"><span class="num">05</span><h2>Areas of expertise</h2></div>
+    <div class="comps">
+      <div class="comp"><h3>Governance &amp; Organization</h3><ul><li>Roles and responsibilities</li><li>Job architecture and grading</li><li>Policy and procedure documentation</li></ul></div>
+      <div class="comp"><h3>Risk &amp; Compliance</h3><ul><li>Risk assessment frameworks</li><li>Risk management frameworks and strategies</li><li>Integrated GRC (OCEG)</li><li>Gap and readiness assessments</li></ul></div>
+      <div class="comp"><h3>Performance Management</h3><ul><li>KPI framework design</li><li>Corporate performance management (CPM)</li><li>Performance measurement and reporting</li></ul></div>
+      <div class="comp"><h3>Customer Experience</h3><ul><li>Current-state assessment</li><li>Customer journey design</li><li>CX program support</li></ul></div>
+      <div class="comp"><h3>PMO &amp; Transformation</h3><ul><li>Milestones and progress reporting</li><li>Initiative launch support</li><li>Stakeholder coordination</li></ul></div>
+      <div class="comp"><h3>Data &amp; Automation</h3><ul><li>Power BI dashboards</li><li>Power Automate workflows</li><li>Advanced Excel</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="head"><span class="num">06</span><h2>Skills &amp; tools</h2></div>
+    <div class="st-wrap">
+      <div>
+        <h4 class="sub">Skills</h4>
+        <div class="skills">
+          <div class="skill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4.5M12 17.2v.3"/></svg><span>Risk assessment</span></div>
+          <div class="skill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v5c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V7z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><span>Risk management frameworks</span></div>
+          <div class="skill"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg><span>KPI framework design</span></div>
+          <div class="skill"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5.5 5.5M8 10.5h5"/></svg><span>Gap analysis</span></div>
+          <div class="skill"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="6" height="5" rx="1"/><rect x="15" y="4" width="6" height="5" rx="1"/><rect x="9" y="15" width="6" height="5" rx="1"/><path d="M9 6.5h6M6 9v3.5h6V15M18 9v3.5h-6"/></svg><span>Process assessment</span></div>
+          <div class="skill"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14c2.7.2 4.5 2.4 4.5 5"/></svg><span>Stakeholder coordination</span></div>
+          <div class="skill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V13M10 20V8M16 20v-5M3 21h18"/><path d="M4 9l6-4 6 5 5-4"/></svg><span>Market research &amp; benchmarking</span></div>
+          <div class="skill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h16M6 15h12M8 11h8M10 7h4"/></svg><span>Job evaluation &amp; grading</span></div>
+          <div class="skill"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M7 12l3-3 2.5 2 4-4"/></svg><span>Training delivery</span></div>
+          <div class="skill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 15.5h6M9 9h2"/></svg><span>Executive reporting</span></div>
+          <div class="skill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11M9 8h6"/></svg><span>Policy &amp; procedure documentation</span></div>
+          <div class="skill"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="18" r="2"/><circle cx="19" cy="6" r="2"/><path d="M7 18h5a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h8"/></svg><span>Customer journey design</span></div>
+        </div>
+      </div>
+      <div>
+        <h4 class="sub">Tools</h4>
+        <div class="tools">
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="M3 9h18M3 14h18M9 4v16M15 4v16"/></svg><div><b>Excel</b><span>Advanced analysis and reporting</span></div></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V12M10 20V6M15 20v-9M20 20V3"/></svg><div><b>Power BI</b><span>Dashboards and insights</span></div></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="12" r="2.5"/><circle cx="6" cy="18" r="2.5"/><path d="M8.5 6.5c4 .5 6 2.5 7 4M8.5 17.5c4-.5 6-2.5 7-4"/></svg><div><b>Power Automate</b><span>Workflow automation</span></div></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 15.5h6M9 9h2"/></svg><div><b>Word</b><span>Policies, documentation and reviews</span></div></div>
+          <div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20l4-4 4 4M7 8h6M7 11h10"/></svg><div><b>PowerPoint</b><span>Executive presentations</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="closing">
+      <div class="avatar"><img src="data:image/jpeg;base64,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" alt="Portrait of Ibtisam Alsomali"></div>
+      <div class="closing-text">
+        <p class="eyebrow">Contact</p>
+        <h2>Let’s work <em>together</em></h2>
+        <p>Thank you for your time and interest. I would welcome the opportunity to discuss how I can contribute to strengthening governance, risk management and performance within your organization.</p>
+      </div>
+      <div class="ccard">
+        <p class="cname">Ibtisam Alsomali</p>
+        <div class="crow"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7M3 12.5h18"/></svg><div><small>Role</small><span>Consultant, Maven Insights</span></div></div>
+        <a class="crow" href="tel:+966500227379"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h3.5l1.8 4.5-2.3 1.5a11 11 0 0 0 6.5 6.5l1.5-2.3 4.5 1.8V19a1.5 1.5 0 0 1-1.6 1.5C10.6 20 4 13.4 3.5 5.1A1.5 1.5 0 0 1 5 3.5z"/></svg><div><small>Phone</small><span>+966 50 022 7379</span></div></a>
+        <a class="crow" href="mailto:Ibtisamalsomalii@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg><div><small>Email</small><span>Ibtisamalsomalii@gmail.com</span></div></a>
+        <a class="crow" href="https://www.linkedin.com/in/ibtisamalsomali" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="8" r="3.5"/><path d="M3.5 20c0-3.6 2.9-6.2 6.5-6.2 1.6 0 3 .5 4.1 1.3M18 14v6M15 17h6"/></svg><div><small>LinkedIn</small><span>linkedin.com/in/ibtisamalsomali</span></div></a>
+        <div class="crow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><small>Location</small><span>Riyadh, Saudi Arabia</span></div></div>
+      </div>
+    </div>
+    <p class="thanks" lang="ar">شكراً لزيارتكم</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>© 2026 Ibtisam Alsomali</span><span>Riyadh, Saudi Arabia</span></div>
+</footer>
+</body>
+</html>
