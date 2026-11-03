@@ -123,7 +123,7 @@ section{padding:84px 0}
 .tags span{font-size:12px;letter-spacing:.06em;padding:5px 12px;border-radius:999px;border:1px solid var(--line);color:var(--gold-soft)}
 
 /* certifications */
-.certs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .cert{position:relative;padding:26px 22px 22px;border-radius:16px;border:1px solid var(--line);background:rgba(43,16,24,.55);display:flex;flex-direction:column;gap:6px}
 .cert .yr{font-family:var(--display);font-variant-numeric:lining-nums;font-size:20px;font-style:italic;color:var(--gold)}
 .cert h3{font-family:var(--body);font-weight:400;font-size:16.5px;line-height:1.4}
@@ -145,7 +145,7 @@ h4.sub{font-family:var(--body);font-weight:500;font-size:12.5px;letter-spacing:.
 .comp li{font-size:14.5px;color:var(--muted);padding-left:18px;position:relative}
 
 
-.edu{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.edu{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .card{padding:26px 28px;border-radius:16px;border:1px solid var(--line);background:rgba(43,16,24,.5)}
 .card .when{margin-bottom:6px}
 .card h3{font-size:26px}
@@ -234,7 +234,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 @media (max-width:920px){
   .hero .hero-grid,.about{grid-template-columns:1fr}
-  .certs{grid-template-columns:1fr 1fr}
+
   .comps{grid-template-columns:1fr 1fr}
   .role{grid-template-columns:1fr;gap:10px}
   nav ul{display:none}
@@ -334,6 +334,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <p>Bachelor’s degree, Computer Science · Riyadh</p>
       </div>
       <div class="card">
+        <p class="when">2024</p>
+        <h3>Forward Program</h3>
+        <p>McKinsey &amp; Company</p>
+      </div>
+      <div class="card">
         <div class="lang">
           <div><b>Arabic</b><span>Native</span></div>
           <div><b>English</b><span>Fluent · IELTS band 7</span></div>
@@ -409,7 +414,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </div>
       <div class="cert" data-cert="cx" role="button" tabindex="0" aria-label="View Customer Experience certificate"><span class="yr">2026</span><h3>Professional Certificate in Customer Experience <em class="dist">with Distinction</em></h3><span class="by">The CX Academy</span><span class="view">View certificate</span><svg class="seal" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46"/><circle cx="50" cy="50" r="38" class="in"/><path class="st" d="M50 22l2.6 6.2 6.6.5-5 4.3 1.6 6.5-5.8-3.5-5.8 3.5 1.6-6.5-5-4.3 6.6-.5z"/><text x="50" y="62">CXA</text></svg></div>
       <div class="cert" data-cert="cpm" role="button" tabindex="0" aria-label="View Performance Management certificate"><span class="yr">2024</span><h3>Certified Performance Management Professional</h3><span class="by">The KPI Institute</span><span class="view">View certificate</span><svg class="seal" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46"/><circle cx="50" cy="50" r="38" class="in"/><path class="st" d="M50 22l2.6 6.2 6.6.5-5 4.3 1.6 6.5-5.8-3.5-5.8 3.5 1.6-6.5-5-4.3 6.6-.5z"/><text x="50" y="62">KPI</text></svg></div>
-      <div class="cert"><span class="yr">2024</span><h3>Forward Program</h3><span class="by">McKinsey &amp; Company</span><svg class="seal" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46"/><circle cx="50" cy="50" r="38" class="in"/><path class="st" d="M50 22l2.6 6.2 6.6.5-5 4.3 1.6 6.5-5.8-3.5-5.8 3.5 1.6-6.5-5-4.3 6.6-.5z"/><text x="50" y="62">MCK</text></svg></div>
     </div>
   </div>
 </section>
