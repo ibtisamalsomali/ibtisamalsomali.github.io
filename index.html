@@ -322,9 +322,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <div class="wrap">
     <div class="stats">
       <div class="stat"><b>Riyadh</b><span>Based in Saudi Arabia</span></div>
-      <div class="stat"><b>3</b><span>Years in consulting</span></div>
-      <div class="stat"><b>5+</b><span>Public &amp; private sector clients</span></div>
-      <div class="stat"><b>3</b><span>Global certifications</span></div>
+      <div class="stat"><b data-count="3">3</b><span>Years in consulting</span></div>
+      <div class="stat"><b data-count="5" data-suffix="+">5+</b><span>Public &amp; private sector clients</span></div>
+      <div class="stat"><b data-count="3">3</b><span>Global certifications</span></div>
     </div>
   </div>
 </header>
@@ -562,6 +562,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   });
   box.addEventListener('click',function(e){if(e.target===box||e.target.classList.contains('lb-close'))close()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!box.hidden)close()});
+})();
+</script>
+<script>
+(function(){
+  var els=document.querySelectorAll('[data-count]');
+  if(!els.length||!('IntersectionObserver' in window))return;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  function run(el){
+    var end=+el.dataset.count,suf=el.dataset.suffix||'',dur=1600,t0=null;
+    function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/dur,1),e=1-Math.pow(1-p,3);
+      el.textContent=Math.round(end*e)+(p===1?suf:'');if(p<1)requestAnimationFrame(step);}
+    el.textContent='0';requestAnimationFrame(step);
+  }
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){io.unobserve(en.target);run(en.target);}})},{threshold:.6});
+  els.forEach(function(el){io.observe(el)});
 })();
 </script>
 </body>
